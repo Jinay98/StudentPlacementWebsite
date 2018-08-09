@@ -1,0 +1,75 @@
+{% extends 'base1.html' %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Companies</title>
+</head>
+{% block body %}
+
+<div id="mySidenav" class="sidenav" style="z-index: 2">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="/accounts/">My Profile</a>
+  <a href="/accounts/Acads">Academic details</a>
+  <a href="/accounts/Companies">Companies</a>
+    <a href="#">About us</a>
+  <a href="/accounts/logout">Logout</a>
+</div>
+
+<nav class="navbar navbar-inverse" style="z-index: 0">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+{#        <span style="font-size:30px;cursor:pointer" onclick="openNav()">Splacer</span>#}
+</div>
+    </div>
+    <ul class="nav navbar-nav">
+             <li class="active"> <span style="font-size:25px;cursor:pointer;color: #f1f1f1;z-index: 0" onclick="openNav()">&#9776; Splacer</span></li>
+      <li ><a href="/accounts/">Home</a></li>
+        <li  ><a href="/accounts/Acads">Academic Details </a></li>
+        <li class="active"><a href="/accounts/Companies">Companies</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/accounts/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="accounts/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<div id="main">
+    <div class="container">
+  <h2>Company Description</h2>
+        <br><br><br>
+        <table class="table table-bordered">
+        <thead>
+      <tr>
+        <th>Name</th>
+        <th>Domain</th>
+        <th>Package</th>
+          <th>Pointer</th>
+          <th>Arrival Date</th>
+          <th>Eligible</th>
+      </tr>
+    </thead>
+            <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
