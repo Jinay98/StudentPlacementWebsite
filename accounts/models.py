@@ -35,7 +35,7 @@ class Company(models.Model):
     package=models.IntegerField(default=50000)
     pointer=models.FloatField(default=6.5)
     arrivaldate=models.DateField()
-    eligible=models.IntegerField(default=0)
+    
 
 # class StuAcads(models.Model):
 #     UID=models.OneToOneField(UserProfile,on_delete=models.CASCADE)
