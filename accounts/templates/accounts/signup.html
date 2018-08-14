@@ -2,9 +2,10 @@
 {% block head %}
 
 {% endblock %}
-<center>
+
     {% block body %}
-  <h2>Sign up</h2>
+        <div class="container">
+        <h2>Sign up</h2>
   <form method="post">
     {% csrf_token %}
     {% for field in form %}
@@ -19,7 +20,11 @@
         {% endfor %}
       </p>
     {% endfor %}
+{#  {{ profile_form.as_p }}#}
     <button type="submit">Sign up</button>
   </form>
+
+        </div>
+
 {% endblock %}
-</center>
+

@@ -6,6 +6,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
+    body {
+        background-color: #25bacc;
+}
     .sidenav {
     height: 100%;
     width: 0;
@@ -62,12 +65,14 @@ function closeNav() {
 }
 </script>
 
-<body>
+<body >
+{% if user.is_authenticated %}
 <div id="mySidenav" class="sidenav" style="z-index: 2">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="/accounts/">My Profile</a>
   <a href="/accounts/Acads">Academic details</a>
   <a href="/accounts/Companies">Companies</a>
+    <a href="/admin">Administrator</a>
     <a href="#">About us</a>
   <a href="/accounts/logout">Logout</a>
 </div>
@@ -85,11 +90,13 @@ function closeNav() {
 
 </div>
     </div>
+
     <ul class="nav navbar-nav">
              <li class="active"> <span style="font-size:25px;cursor:pointer;color: #f1f1f1;z-index: 0" onclick="openNav()">&#9776; Splacer</span></li>
       <li class="active"><a href="/accounts/">Home</a></li>
         <li ><a href="/accounts/Acads">Academic Details </a></li>
         <li><a href="/accounts/Companies">Companies</a></li>
+        <li><a href="/admin">Administrator</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/accounts/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -101,13 +108,18 @@ function closeNav() {
 <div id="main">
     <div class="container">
   <h2>Profile Details</h2>
+    <h2>hi {{ user.get_full_name}} is {{ user.id}} is {{ UID }}</h2>
+        {% load staticfiles %}
+        <div class="container" align="center">
+            <img src="{% static "accounts/pic.jpg" %}" alt="My image" align="center">
+        </div>
 
     <div class="form-group">
         <br><br><br><br>
       <label class="control-label col-sm-2" for="UID" style="font-size:20px">UID:</label>
 
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="email" placeholder="UID of Student"name="UID" >
+        <input type="text" class="form-control" id="email" placeholder="UID of Student"name="UID" value="{{ UID }}" >
           <br><br>
       </div>
     </div>
@@ -117,7 +129,7 @@ function closeNav() {
       <label class="control-label col-sm-2" for="stuname" style="font-size:20px">Name:</label>
         <br><br>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="stuname" placeholder="Name of Student" name="stuname" >
+        <input type="text" class="form-control" id="stuname" placeholder="Name of Student" name="stuname" value='{{ user.get_full_name}}' >
           <br><br>
       </div>
     </div>
@@ -125,7 +137,7 @@ function closeNav() {
       <label class="control-label col-sm-2" for="branch" style="font-size:20px">Branch:</label>
             <br><br>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="branch" placeholder="Branch of Student" name="branch">
+        <input type="text" class="form-control" id="branch" placeholder="Branch of Student" name="branch" value="{{ branch }}">
           <br><br>
       </div>
     </div>
@@ -133,7 +145,7 @@ function closeNav() {
       <label class="control-label col-sm-2" for="year" style="font-size:20px">Year:</label>
             <br><br>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="year" placeholder="Year of Student" name="year">
+        <input type="text" class="form-control" id="year" placeholder="Year of Student" name="year" value="{{ year }}" >
           <br><br>
       </div>
     </div>
@@ -141,7 +153,7 @@ function closeNav() {
       <label class="control-label col-sm-2" for="state" style="font-size:20px">State:</label>
             <br><br>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="state" placeholder="State" name="state">
+        <input type="text" class="form-control" id="state" placeholder="State" name="state" value="{{ state }}">
           <br><br>
       </div>
     </div>
@@ -149,13 +161,21 @@ function closeNav() {
       <label class="control-label col-sm-2" for="city" style="font-size:20px">City:</label>
             <br><br>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="city" placeholder="City" name="city">
+        <input type="text" class="form-control" id="city" placeholder="City" name="city" value="{{ city }}">
           <br><br>
       </div>
     </div>
     </div>
 </div>
+    {% else %}
+    <div class="container">
+    <h2>Dear, {{ user }} Please Sign up for the website!! Use the given link below</h2>
+    <br><br>
+    <a href="http://localhost:8000/accounts/register/"><h3>Link for Signing Up</h3></a>
 
+    </div>
+
+{% endif %}
 </body>
 
 

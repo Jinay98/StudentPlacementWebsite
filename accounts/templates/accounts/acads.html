@@ -11,6 +11,7 @@
   <a href="/accounts/">My Profile</a>
   <a href="/accounts/Acads">Academic details</a>
   <a href="/accounts/Companies">Companies</a>
+    <a href="/admin">Administrator</a>
     <a href="#">About us</a>
   <a href="/accounts/logout">Logout</a>
 </div>
@@ -27,6 +28,7 @@
       <li ><a href="/accounts/">Home</a></li>
         <li class="active" ><a href="/accounts/Acads">Academic Details </a></li>
         <li><a href="/accounts/Companies">Companies</a></li>
+        <li><a href="/admin">Administrator</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/accounts/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -37,7 +39,7 @@
     <div id="main">
     <div class="container">
   <h2>Academic Details</h2>
-        <br><br><br>
+
         <form class="form-horizontal" action="" method="POST">
             {% csrf_token %}
            <div class="form-group">
@@ -52,53 +54,81 @@
 
 
     <div class="form-group">
-      <label class="control-label col-sm-2" for="stuname" style="font-size:20px">Name:</label>
-        <br><br>
+      <label class="control-label col-sm-2" for="s2" style="font-size:20px">Sem1 Pointer:</label>
+
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="stuname" placeholder="Name of Student" name="stuname" value= '{% if submitbutton == "Submit" %} {{ stuname }} {% endif %}'/>
+        <input type="text" class="form-control" id="s1" placeholder="Sem1 Pointer" name="s1" value= '{% if submitbutton == "Submit" %} {{ s1 }}{%else%}0.0 {% endif %}'/>
           <br><br>
       </div>
     </div>
         <div class="form-group">
-      <label class="control-label col-sm-2" for="branch" style="font-size:20px">Branch:</label>
-            <br><br>
+      <label class="control-label col-sm-2" for="s2" style="font-size:20px">Sem2 Pointer:</label>
+
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="branch" placeholder="Branch of Student" name="branch" value= '{% if submitbutton == "Submit" %} {{ branch }} {% endif %}'/>
+        <input type="text" class="form-control" id="s2" placeholder="Sem2 Pointer" name="s2" value= '{% if submitbutton == "Submit" %} {{ s2 }}{%else%}0.0 {% endif %}'/>
           <br><br>
       </div>
     </div>
         <div class="form-group">
-      <label class="control-label col-sm-2" for="year" style="font-size:20px">Year:</label>
-            <br><br>
+      <label class="control-label col-sm-2" for="s3" style="font-size:20px">Sem3 Pointer:</label>
+
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="year" placeholder="Year of Student" name="year" value= '{% if submitbutton == "Submit" %} {{ year }} {% endif %}'/>
+        <input type="text" class="form-control" id="s3" placeholder="Sem3 Pointer" name="s3" value= '{% if submitbutton == "Submit" %} {{ s3 }}{%else%}0.0 {% endif %}'/>
           <br><br>
       </div>
     </div>
         <div class="form-group">
-      <label class="control-label col-sm-2" for="state" style="font-size:20px">State:</label>
-            <br><br>
+      <label class="control-label col-sm-2" for="s4" style="font-size:20px">Sem4 Pointer:</label>
+
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="state" placeholder="State" name="state" value= '{% if submitbutton == "Submit" %} {{ state }} {% endif %}'/>
+        <input type="text" class="form-control" id="s4" placeholder="Sem4 Pointer" name="s4" value= '{% if submitbutton == "Submit" %} {{ s4 }}{%else%}0.0 {% endif %}'/>
           <br><br>
       </div>
     </div>
         <div class="form-group">
-      <label class="control-label col-sm-2" for="city" style="font-size:20px">City:</label>
-            <br><br>
+      <label class="control-label col-sm-2" for="s5" style="font-size:20px">Sem5 Pointer:</label>
+
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="city" placeholder="City" name="city" />
+        <input type="text" class="form-control" id="s5" placeholder="Sem5 Pointer" name="s5" value= '{% if submitbutton == "Submit" %} {{ s5 }}{%else%}0.0 {% endif %}' />
+          <br><br>
+      </div>
+    </div>
+        <div class="form-group">
+      <label class="control-label col-sm-2" for="s6" style="font-size:20px">Sem6 Pointer:</label>
+
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="s6" placeholder="Sem6 Pointer" name="s6" value= '{% if submitbutton == "Submit" %} {{ s6 }}{%else%}0.0 {% endif %}' />
+          <br><br>
+      </div>
+    </div>
+
+        <div class="form-group">
+      <label class="control-label col-sm-2" for="s7" style="font-size:20px">Sem7 Pointer:</label>
+
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="s7" placeholder="Sem7 Pointer" name="s7" value= '{% if submitbutton == "Submit" %} {{ s7 }}{%else%}0.0{% endif %}' />
+          <br><br>
+      </div>
+    </div>
+
+        <div class="form-group">
+      <label class="control-label col-sm-2" for="s8" style="font-size:20px">Sem8 Pointer:</label>
+
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="s8" placeholder="Sem8 Pointer" name="s8" value= '{% if submitbutton == "Submit" %} {{ s8 }}{%else%}0.0 {% endif %}' />
           <br><br>
       </div>
     </div>
         <input type="Submit" name="Submit" value="Submit"/>
+        <input type="Submit" name="DBstore" value="Save To DB"/>
         </form>
             </div>
 </div>
     {% if submitbutton == "Submit"  %}
-<h1> Your first name is {{ stuname }}</h1>
+<h1> Your first name is {{ s1 }}</h1>
 <h1> Your UID  is {{ UID }}</h1>
-<h1> Your city is {{ city }} </h1>
-<h1> Your state is {{ state }} </h1>
+<h1> Your city is {{ s3 }} </h1>
+<h1> Your state is {{ s4 }} </h1>
+        <h1>Cgpa is {{ cgpa }}</h1>
 {% endif %}
 {% endblock %}

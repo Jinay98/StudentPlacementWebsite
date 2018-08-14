@@ -1,8 +1,15 @@
 {% extends 'base1.html' %}
-
+{#{% include 'acads.html' %}#}
 <head>
     <meta charset="UTF-8">
     <title>Companies</title>
+    <style>
+    table {
+
+    border: 3px solid #CECECE;
+}
+
+    </style>
 </head>
 {% block body %}
 
@@ -11,8 +18,10 @@
   <a href="/accounts/">My Profile</a>
   <a href="/accounts/Acads">Academic details</a>
   <a href="/accounts/Companies">Companies</a>
+    <a href="/admin">Administrator</a>
     <a href="#">About us</a>
   <a href="/accounts/logout">Logout</a>
+
 </div>
 
 <nav class="navbar navbar-inverse" style="z-index: 0">
@@ -27,10 +36,12 @@
       <li ><a href="/accounts/">Home</a></li>
         <li  ><a href="/accounts/Acads">Academic Details </a></li>
         <li class="active"><a href="/accounts/Companies">Companies</a></li>
+        <li><a href="/admin">Administrator</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/accounts/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="accounts/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+
     </ul>
   </div>
 </nav>
@@ -39,37 +50,40 @@
 <div id="main">
     <div class="container">
   <h2>Company Description</h2>
+    <h2>Your CGPA is : {{ cgpa }} </h2>
+
         <br><br><br>
         <table class="table table-bordered">
         <thead>
       <tr>
+          <th>CID</th>
         <th>Name</th>
         <th>Domain</th>
         <th>Package</th>
           <th>Pointer</th>
           <th>Arrival Date</th>
-          <th>Eligible</th>
+
       </tr>
     </thead>
             <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
+             <tr>
+            {% for dict_item in result %}
+{#                <h1>the points are {{ dict_item['pointer']}}</h1>#}
+   {% for key, value in dict_item.items%}
+{#              {% if cgpa >= pointer %}#}
+                    <td>{{value}}</td>
+
+{#           {% endif %}#}
+   {% endfor %}
+                <tr></tr>
+{% endfor %}
+  </tr>
+
+
+
     </tbody>
         </table>
     </div>
 </div>
-{% endblock %}
+{%endblock%}
 
