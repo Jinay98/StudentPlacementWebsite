@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>Companies</title>
     <style>
-    table {
-
-    border: 3px solid #CECECE;
+    .table.table-bordered {
+        border: 5px solid #CECECE;
 }
+
 
     </style>
 </head>
@@ -19,12 +19,12 @@
   <a href="/accounts/Acads">Academic details</a>
   <a href="/accounts/Companies">Companies</a>
     <a href="/admin">Administrator</a>
-    <a href="#">About us</a>
+    <a href="http://www.spit.ac.in/about/">About us</a>
   <a href="/accounts/logout">Logout</a>
 
 </div>
 
-<nav class="navbar navbar-inverse" style="z-index: 0">
+<nav class="navbar navbar-inverse" style="z-index: 0;background-color: #374785;background: #374785 ;border-color:#374785">
   <div class="container-fluid">
     <div class="navbar-header">
 
@@ -33,14 +33,14 @@
     </div>
     <ul class="nav navbar-nav">
              <li class="active"> <span style="font-size:25px;cursor:pointer;color: #f1f1f1;z-index: 0" onclick="openNav()">&#9776; Splacer</span></li>
-      <li ><a href="/accounts/">Home</a></li>
-        <li  ><a href="/accounts/Acads">Academic Details </a></li>
-        <li class="active"><a href="/accounts/Companies">Companies</a></li>
-        <li><a href="/admin">Administrator</a></li>
+      <li ><a href="/accounts/" style="color: #f1f1f1">Home</a></li>
+        <li  ><a href="/accounts/Acads" style="color: #f1f1f1">Academic Details </a></li>
+        <li class="active"><a href="/accounts/Companies" style="background-color: #0b5de2">Companies</a></li>
+        <li><a href="/admin" style="color: #f1f1f1">Administrator</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="/accounts/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="accounts/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      <li><a href="/accounts/register" style="color: #f1f1f1"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="accounts/logout" style="color: #f1f1f1"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
 
     </ul>
   </div>
@@ -49,14 +49,15 @@
 
 <div id="main">
     <div class="container">
-  <h2>Company Description</h2>
+    <div class="container" align="center">
+        <b><p style="font-size: 35px">List Of Companies</p></b>
     <h2>Your CGPA is : {{ cgpa }} </h2>
-
-        <br><br><br>
-        <table class="table table-bordered">
-        <thead>
+    </div>
+        <br><br>
+        <table class="table table-bordered" style="border-color: #ffffff">
+        <thead style="font-size: 25px;border-color: #ffffff">
       <tr>
-          <th>CID</th>
+          <th>Sr No.</th>
         <th>Name</th>
         <th>Domain</th>
         <th>Package</th>
@@ -65,15 +66,23 @@
 
       </tr>
     </thead>
-            <tbody>
-             <tr>
+            <tbody style="border-color: #ffffff">
+             <tr style="font-size: 18px;border-color: #ffffff">
             {% for dict_item in result %}
-{#                <h1>the points are {{ dict_item['pointer']}}</h1>#}
-   {% for key, value in dict_item.items%}
-{#              {% if cgpa >= pointer %}#}
-                    <td>{{value}}</td>
 
-{#           {% endif %}#}
+   {% for key, value in dict_item.items%}
+
+                    {% if key == 'pointer'%}
+                        {% if value <= cgpa %}
+                            <td style="font-size: 18px;border-color: #ffffff">{{value}}</td>
+                            {% else %}
+                            <td style="color: red;font-size: 18px;border-color: #ffffff">Not Eligible</td>
+                            {% endif %}
+                        {% else %}
+                        <td style="font-size: 18px;border-color: #ffffff">{{ value }}</td>
+
+                        {% endif %}
+
    {% endfor %}
                 <tr></tr>
 {% endfor %}

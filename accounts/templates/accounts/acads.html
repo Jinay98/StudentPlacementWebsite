@@ -16,7 +16,7 @@
   <a href="/accounts/logout">Logout</a>
 </div>
 
-<nav class="navbar navbar-inverse" style="z-index: 0">
+<nav class="navbar navbar-inverse" style="z-index: 0;background-color: #374785;background: #374785 ;border-color:#374785">
   <div class="container-fluid">
     <div class="navbar-header">
 
@@ -25,21 +25,20 @@
     </div>
     <ul class="nav navbar-nav">
              <li class="active"> <span style="font-size:25px;cursor:pointer;color: #f1f1f1;z-index: 0" onclick="openNav()">&#9776; Splacer</span></li>
-      <li ><a href="/accounts/">Home</a></li>
-        <li class="active" ><a href="/accounts/Acads">Academic Details </a></li>
-        <li><a href="/accounts/Companies">Companies</a></li>
-        <li><a href="/admin">Administrator</a></li>
+      <li ><a href="/accounts/" style="color: #f1f1f1">Home</a></li>
+        <li class="active" ><a href="/accounts/Acads" style="background-color: #0b5de2">Academic Details </a></li>
+        <li><a href="/accounts/Companies" style="color: #f1f1f1">Companies</a></li>
+        <li><a href="/admin" style="color: #f1f1f1">Administrator</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="/accounts/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="accounts/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      <li><a href="/accounts/register" style="color: #f1f1f1"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="accounts/logout" style="color: #f1f1f1"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
     </ul>
   </div>
 </nav>
     <div id="main">
     <div class="container">
-  <h2>Academic Details</h2>
-
+        <div class="container" align="center">  <b><p style="font-size: 35px">Academic Details</p></b></div>
         <form class="form-horizontal" action="" method="POST">
             {% csrf_token %}
            <div class="form-group">
@@ -47,7 +46,7 @@
       <label class="control-label col-sm-2" for="UID" style="font-size:20px">UID:</label>
 
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="email" placeholder="UID of Student"name="UID" value= '{% if submitbutton == "Submit" %} {{ UID }} {% endif %}'/>
+        <input type="text" class="form-control" id="email" placeholder="UID of Student"name="UID" style="font-size: 18px" value= '{% if submitbutton == "Submit" %} {{ UID }}{% endif %}' />
           <br><br>
       </div>
     </div>
@@ -57,7 +56,7 @@
       <label class="control-label col-sm-2" for="s2" style="font-size:20px">Sem1 Pointer:</label>
 
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="s1" placeholder="Sem1 Pointer" name="s1" value= '{% if submitbutton == "Submit" %} {{ s1 }}{%else%}0.0 {% endif %}'/>
+        <input type="text" class="form-control" id="s1" placeholder="Sem1 Pointer" name="s1" style="font-size: 18px" value= '{% if submitbutton == "Submit" %} {{ s1 }}{%else%}0.0 {% endif %}'/>
           <br><br>
       </div>
     </div>
@@ -65,7 +64,7 @@
       <label class="control-label col-sm-2" for="s2" style="font-size:20px">Sem2 Pointer:</label>
 
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="s2" placeholder="Sem2 Pointer" name="s2" value= '{% if submitbutton == "Submit" %} {{ s2 }}{%else%}0.0 {% endif %}'/>
+        <input type="text" class="form-control" id="s2" placeholder="Sem2 Pointer" name="s2" style="font-size: 18px" value= '{% if submitbutton == "Submit" %} {{ s2 }}{%else%}0.0 {% endif %}'/>
           <br><br>
       </div>
     </div>
@@ -73,7 +72,7 @@
       <label class="control-label col-sm-2" for="s3" style="font-size:20px">Sem3 Pointer:</label>
 
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="s3" placeholder="Sem3 Pointer" name="s3" value= '{% if submitbutton == "Submit" %} {{ s3 }}{%else%}0.0 {% endif %}'/>
+        <input type="text" class="form-control" id="s3" placeholder="Sem3 Pointer" name="s3" style="font-size: 18px" value= '{% if submitbutton == "Submit" %} {{ s3 }}{%else%}0.0 {% endif %}'/>
           <br><br>
       </div>
     </div>
@@ -81,7 +80,7 @@
       <label class="control-label col-sm-2" for="s4" style="font-size:20px">Sem4 Pointer:</label>
 
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="s4" placeholder="Sem4 Pointer" name="s4" value= '{% if submitbutton == "Submit" %} {{ s4 }}{%else%}0.0 {% endif %}'/>
+        <input type="text" class="form-control" id="s4" placeholder="Sem4 Pointer" name="s4" style="font-size: 18px" value= '{% if submitbutton == "Submit" %} {{ s4 }}{%else%}0.0 {% endif %}'/>
           <br><br>
       </div>
     </div>
@@ -89,7 +88,7 @@
       <label class="control-label col-sm-2" for="s5" style="font-size:20px">Sem5 Pointer:</label>
 
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="s5" placeholder="Sem5 Pointer" name="s5" value= '{% if submitbutton == "Submit" %} {{ s5 }}{%else%}0.0 {% endif %}' />
+        <input type="text" class="form-control" id="s5" placeholder="Sem5 Pointer" name="s5" style="font-size: 18px" value= '{% if submitbutton == "Submit" %} {{ s5 }}{%else%}0.0 {% endif %}' />
           <br><br>
       </div>
     </div>
@@ -97,7 +96,7 @@
       <label class="control-label col-sm-2" for="s6" style="font-size:20px">Sem6 Pointer:</label>
 
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="s6" placeholder="Sem6 Pointer" name="s6" value= '{% if submitbutton == "Submit" %} {{ s6 }}{%else%}0.0 {% endif %}' />
+        <input type="text" class="form-control" id="s6" placeholder="Sem6 Pointer" name="s6" style="font-size: 18px" value= '{% if submitbutton == "Submit" %} {{ s6 }}{%else%}0.0 {% endif %}' />
           <br><br>
       </div>
     </div>
@@ -106,7 +105,7 @@
       <label class="control-label col-sm-2" for="s7" style="font-size:20px">Sem7 Pointer:</label>
 
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="s7" placeholder="Sem7 Pointer" name="s7" value= '{% if submitbutton == "Submit" %} {{ s7 }}{%else%}0.0{% endif %}' />
+        <input type="text" class="form-control" id="s7" placeholder="Sem7 Pointer" name="s7" style="font-size: 18px" value= '{% if submitbutton == "Submit" %} {{ s7 }}{%else%}0.0{% endif %}' />
           <br><br>
       </div>
     </div>
@@ -115,20 +114,23 @@
       <label class="control-label col-sm-2" for="s8" style="font-size:20px">Sem8 Pointer:</label>
 
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="s8" placeholder="Sem8 Pointer" name="s8" value= '{% if submitbutton == "Submit" %} {{ s8 }}{%else%}0.0 {% endif %}' />
+        <input type="text" class="form-control" id="s8" placeholder="Sem8 Pointer" name="s8" style="font-size: 18px" value= '{% if submitbutton == "Submit" %} {{ s8 }}{%else%}0.0 {% endif %}' />
           <br><br>
       </div>
     </div>
-        <input type="Submit" name="Submit" value="Submit"/>
-        <input type="Submit" name="DBstore" value="Save To DB"/>
+        <div class="container" align="center">
+            <input type="Submit" name="Submit" value="Submit" class="button"/><br><br>
+            <input type="Submit" name="DBstore" value="Save To DB" class="button"/>
+        </div>
+
         </form>
             </div>
 </div>
     {% if submitbutton == "Submit"  %}
-<h1> Your first name is {{ s1 }}</h1>
-<h1> Your UID  is {{ UID }}</h1>
-<h1> Your city is {{ s3 }} </h1>
-<h1> Your state is {{ s4 }} </h1>
-        <h1>Cgpa is {{ cgpa }}</h1>
-{% endif %}
+        <div class="container" align="center">
+        <h1>Your UID  is {{ UID }}</h1>
+        <h1>CGPA is {{ cgpa }}</h1>
+        </div>
+
+    {% endif %}
 {% endblock %}

@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 <head>
     <meta charset="UTF-8">
+    {% block head %}
     <title>Logout</title>
+    {% endblock %}
 </head>
 <body>
-<p>You have successfully logged out!</p>
+{% block body %}
+    <div class="container" align="center">
+    <br><br><br><br><br><br><br><br>
+    <marquee><p style="font-size: 95px">Thank You For Using Splacer</p></marquee>
+    </div>
+{% endblock %}
 </body>
-</html>
