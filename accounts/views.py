@@ -21,20 +21,6 @@ def home(request):
 
 
 
-# def register(request):
-#     if request.method == "POST":
-#         form=UserCreationForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('/accounts/')
-#             #return HttpResponseRedirect('/accounts/')
-#
-#     else:
-#         form=UserCreationForm()
-#         args={'form':form}
-#         #args={}
-#         #args['form']= form
-#         return render(request , 'accounts/reg_form.html',args)
 
 
 
@@ -43,23 +29,15 @@ def register(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         print('Hello')
-        #form1 =UserProfileForm(request.POST)
-        #profile_form = UserProfileForm(request.POST, instance=request.user.id)
+
         if form.is_valid():
             objuser = form.save()
-            #profile_form.save()
 
-            #ediitedd
             print(objuser.id)
-
-
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
-            #obj1=User()
-            #obj = UserProfile.objects.get(user_id=31)
-            print(request.user.id)
-            #obj=UserProfile.objects.get(user_id=objuser.id)
 
+            print(request.user.id)
 
             objt = UserProfile(user=objuser, UID=request.POST.get('UID'), state=request.POST.get('State'),
                               city=request.POST.get('City'), branch=request.POST.get('Branch'),
@@ -69,16 +47,6 @@ def register(request):
 
             objt.save()
 
-            # user = User.objects.get(pk=8)
-            # user.UserProfile.UID=1010101
-            # user.UserProfile.city='Delhi'
-            # user.save()
-
-
-            # user = User.objects.get(username=request.user.username)
-            # user.UserProfile.UID = 100
-            # user.UserProfile.s1=9.6
-            # user.save()
             user = authenticate(username=username, password=raw_password)
             login(request, user)
             return redirect('http://127.0.0.1:8000/accounts')
@@ -91,9 +59,7 @@ def register(request):
 
 @login_required
 def company(request):
-    # entry_list = Company.objects.all()
-    # print(entry_list.CID)
-    # return render(request,'accounts/company.html',entry_list)
+
     obj = UserProfile.objects.get(user_id=request.user.id)
     print(obj.UID)
     obj1=Studmks.objects.get(UID=obj.UID)

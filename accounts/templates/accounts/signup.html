@@ -10,21 +10,27 @@
   <form class="form-horizontal" method="post">
     {% csrf_token %}
     {% for field in form %}
-      <p style="font-size: 18px">
+        <div align="center">
+        <p style="font-size: 18px">
 
 
         {{ field.label_tag }}<br>
         {{ field }}
-        {% if field.help_text %}
-          <small style="color: black">{{ field.help_text }}</small>
-        {% endif %}
+{#        {% if field.help_text %}#}
+{#          <small style="color: black">{{ field.help_text }}</small>#}
+{#        {% endif %}#}
         {% for error in field.errors %}
           <p style="color: red">{{ error }}</p>
         {% endfor %}
       </p>
+        </div>
+
     {% endfor %}
     <br><br>
-    <button class="button" type="submit">Sign up</button>
+  <div align="center">
+      <button class="button" type="submit">Sign up</button>
+  </div>
+
   <br><br>
   </form>
 
